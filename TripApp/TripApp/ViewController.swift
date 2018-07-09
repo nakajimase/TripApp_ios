@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var dataLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +25,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    @IBAction func showingData(_ sender: UIButton) {
+        Alamofire.request("http://13.59.253.231/article/getDetail").responseJSON{ response in
+            let json:JSON = JSON(response.result.value)
+            print(json)
+            SVProgressHUD.dismiss()
+        }
+        SVProgressHUD.show()
+    }
 }
 

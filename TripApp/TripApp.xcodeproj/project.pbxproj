@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54EAFAFA44533241503007AB /* Pods_TripApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */; };
 		B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E12E20E87DA30017127B /* AppDelegate.swift */; };
 		B410E13120E87DA30017127B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E13020E87DA30017127B /* ViewController.swift */; };
 		B410E13420E87DA40017127B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410E13220E87DA40017127B /* Main.storyboard */; };
 		B410E13620E87DAB0017127B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B410E13520E87DAB0017127B /* Assets.xcassets */; };
 		B410E13920E87DAB0017127B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410E13720E87DAB0017127B /* LaunchScreen.storyboard */; };
+		B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B410E14020E8867F0017127B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D77289334AF20487437B27C /* Pods-TripApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripApp/Pods-TripApp.debug.xcconfig"; sourceTree = "<group>"; };
+		73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D28D6BA3BCAAC001C10C26F /* Pods-TripApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TripApp/Pods-TripApp.release.xcconfig"; sourceTree = "<group>"; };
 		B410E12B20E87DA30017127B /* TripApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B410E12E20E87DA30017127B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B410E13020E87DA30017127B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		B410E13520E87DAB0017127B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B410E13820E87DAB0017127B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B410E13A20E87DAB0017127B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B410E14020E8867F0017127B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54EAFAFA44533241503007AB /* Pods_TripApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E5F2A0AB34CB1247A1EEEA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FEA806F3E4D59FCA923A84F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D77289334AF20487437B27C /* Pods-TripApp.debug.xcconfig */,
+				8D28D6BA3BCAAC001C10C26F /* Pods-TripApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B410E12220E87DA30017127B = {
 			isa = PBXGroup;
 			children = (
 				B410E12D20E87DA30017127B /* TripApp */,
 				B410E12C20E87DA30017127B /* Products */,
+				8FEA806F3E4D59FCA923A84F /* Pods */,
+				3E5F2A0AB34CB1247A1EEEA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				B410E13520E87DAB0017127B /* Assets.xcassets */,
 				B410E13720E87DAB0017127B /* LaunchScreen.storyboard */,
 				B410E13A20E87DAB0017127B /* Info.plist */,
+				B410E14020E8867F0017127B /* GoogleService-Info.plist */,
 			);
 			path = TripApp;
 			sourceTree = "<group>";
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B410E13D20E87DAB0017127B /* Build configuration list for PBXNativeTarget "TripApp" */;
 			buildPhases = (
+				888BDED55A71F9C431036170 /* [CP] Check Pods Manifest.lock */,
 				B410E12720E87DA30017127B /* Sources */,
 				B410E12820E87DA30017127B /* Frameworks */,
 				B410E12920E87DA30017127B /* Resources */,
+				2BFC441A4B1B0FA044572A10 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +152,60 @@
 			buildActionMask = 2147483647;
 			files = (
 				B410E13920E87DAB0017127B /* LaunchScreen.storyboard in Resources */,
+				B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */,
 				B410E13620E87DAB0017127B /* Assets.xcassets in Resources */,
 				B410E13420E87DA40017127B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BFC441A4B1B0FA044572A10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TripApp/Pods-TripApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TripApp/Pods-TripApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		888BDED55A71F9C431036170 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TripApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B410E12720E87DA30017127B /* Sources */ = {
@@ -278,6 +355,7 @@
 		};
 		B410E13E20E87DAB0017127B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D77289334AF20487437B27C /* Pods-TripApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +374,7 @@
 		};
 		B410E13F20E87DAB0017127B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D28D6BA3BCAAC001C10C26F /* Pods-TripApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
