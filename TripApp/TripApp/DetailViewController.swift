@@ -2,6 +2,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var backBtn: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -13,4 +15,7 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func backPage(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

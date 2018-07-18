@@ -16,6 +16,16 @@
 		B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B410E14020E8867F0017127B /* GoogleService-Info.plist */; };
 		B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490455E20F9FE4900B2BF52 /* DetailViewController.swift */; };
 		B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */; };
+		B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490456C20FAD5B400B2BF52 /* NavigationController.swift */; };
+		B490456F20FAD5C900B2BF52 /* NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */; };
+		B490457420FF605900B2BF52 /* DetailTopImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457220FF605900B2BF52 /* DetailTopImageCell.swift */; };
+		B490457520FF605900B2BF52 /* DetailTopImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457320FF605900B2BF52 /* DetailTopImageCell.xib */; };
+		B490457820FF608D00B2BF52 /* DetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457620FF608D00B2BF52 /* DetailTitleCell.swift */; };
+		B490457920FF608D00B2BF52 /* DetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457720FF608D00B2BF52 /* DetailTitleCell.xib */; };
+		B490457C20FF60EB00B2BF52 /* DetailContentsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457A20FF60EB00B2BF52 /* DetailContentsTextCell.swift */; };
+		B490457D20FF60EB00B2BF52 /* DetailContentsTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457B20FF60EB00B2BF52 /* DetailContentsTextCell.xib */; };
+		B490458020FF610D00B2BF52 /* DetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457E20FF610D00B2BF52 /* DetailMapCell.swift */; };
+		B490458120FF610D00B2BF52 /* DetailMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457F20FF610D00B2BF52 /* DetailMapCell.xib */; };
 		B4BC267620F4CF3E00E2BCBE /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */; };
 		B4BC267720F4CF3E00E2BCBE /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -34,6 +44,16 @@
 		B410E14020E8867F0017127B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B490455E20F9FE4900B2BF52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
+		B490456C20FAD5B400B2BF52 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationController.storyboard; sourceTree = "<group>"; };
+		B490457220FF605900B2BF52 /* DetailTopImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopImageCell.swift; sourceTree = "<group>"; };
+		B490457320FF605900B2BF52 /* DetailTopImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopImageCell.xib; sourceTree = "<group>"; };
+		B490457620FF608D00B2BF52 /* DetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleCell.swift; sourceTree = "<group>"; };
+		B490457720FF608D00B2BF52 /* DetailTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTitleCell.xib; sourceTree = "<group>"; };
+		B490457A20FF60EB00B2BF52 /* DetailContentsTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentsTextCell.swift; sourceTree = "<group>"; };
+		B490457B20FF60EB00B2BF52 /* DetailContentsTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailContentsTextCell.xib; sourceTree = "<group>"; };
+		B490457E20FF610D00B2BF52 /* DetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapCell.swift; sourceTree = "<group>"; };
+		B490457F20FF610D00B2BF52 /* DetailMapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMapCell.xib; sourceTree = "<group>"; };
 		B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,12 +109,22 @@
 			isa = PBXGroup;
 			children = (
 				B410E12E20E87DA30017127B /* AppDelegate.swift */,
+				B490456C20FAD5B400B2BF52 /* NavigationController.swift */,
+				B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */,
 				B410E13020E87DA30017127B /* TopViewController.swift */,
 				B410E13220E87DA40017127B /* TopViewController.storyboard */,
 				B490455E20F9FE4900B2BF52 /* DetailViewController.swift */,
 				B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */,
 				B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */,
 				B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */,
+				B490457220FF605900B2BF52 /* DetailTopImageCell.swift */,
+				B490457320FF605900B2BF52 /* DetailTopImageCell.xib */,
+				B490457620FF608D00B2BF52 /* DetailTitleCell.swift */,
+				B490457720FF608D00B2BF52 /* DetailTitleCell.xib */,
+				B490457A20FF60EB00B2BF52 /* DetailContentsTextCell.swift */,
+				B490457B20FF60EB00B2BF52 /* DetailContentsTextCell.xib */,
+				B490457E20FF610D00B2BF52 /* DetailMapCell.swift */,
+				B490457F20FF610D00B2BF52 /* DetailMapCell.xib */,
 				B410E13520E87DAB0017127B /* Assets.xcassets */,
 				B410E13720E87DAB0017127B /* LaunchScreen.storyboard */,
 				B410E13A20E87DAB0017127B /* Info.plist */,
@@ -163,12 +193,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B490457920FF608D00B2BF52 /* DetailTitleCell.xib in Resources */,
+				B490457520FF605900B2BF52 /* DetailTopImageCell.xib in Resources */,
+				B490458120FF610D00B2BF52 /* DetailMapCell.xib in Resources */,
 				B410E13920E87DAB0017127B /* LaunchScreen.storyboard in Resources */,
+				B490457D20FF60EB00B2BF52 /* DetailContentsTextCell.xib in Resources */,
 				B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */,
 				B4BC267720F4CF3E00E2BCBE /* TopTableViewCell.xib in Resources */,
 				B410E13620E87DAB0017127B /* Assets.xcassets in Resources */,
 				B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */,
 				B410E13420E87DA40017127B /* TopViewController.storyboard in Resources */,
+				B490456F20FAD5C900B2BF52 /* NavigationController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,8 +261,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B490457820FF608D00B2BF52 /* DetailTitleCell.swift in Sources */,
+				B490458020FF610D00B2BF52 /* DetailMapCell.swift in Sources */,
 				B410E13120E87DA30017127B /* TopViewController.swift in Sources */,
 				B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */,
+				B490457420FF605900B2BF52 /* DetailTopImageCell.swift in Sources */,
+				B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */,
+				B490457C20FF60EB00B2BF52 /* DetailContentsTextCell.swift in Sources */,
 				B4BC267620F4CF3E00E2BCBE /* TopTableViewCell.swift in Sources */,
 				B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */,
 			);

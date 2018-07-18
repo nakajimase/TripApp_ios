@@ -41,11 +41,35 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let article = articlesList[indexPath.row]
         cell.titleLabel?.text = article["title"] as? String
         cell.subLabel?.text = article["area"] as? String
+        if let article_id = article["id"] as? String {
+//            var url = NSURL(string: "http://13.59.253.231/images/" + article_id + "/1.jpg")
+            var urlString = "http://13.59.253.231/images/" + article_id + "/1.jpg"
+            let CACHE_SEC : TimeInterval = 5 * 60
+
+//            Alamofire.request("http://13.59.253.231/images/" + article_id + "/1.jpg").responseJSON{ response in
+//                print(response)
+//            }
+            let req = URLRequest(url: NSURL(string:urlString)! as URL,
+                                 cachePolicy: .returnCacheDataElseLoad,
+                                 timeoutInterval: CACHE_SEC);
+            let conf =  URLSessionConfiguration.default;
+            let session = URLSession(configuration: conf, delegate: nil, delegateQueue: OperationQueue.main);
+            
+            session.dataTask(with: req, completionHandler:
+                { (data, resp, err) in
+                    if((err) == nil){ //Success
+                        let image = UIImage(data:data!)
+                        cell.topImage.image = image
+                        
+                    }else{ //Error
+                        print("AsyncImageView:Error \(err?.localizedDescription)");
+                    }
+            }).resume();
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        getData()
         let storyboard: UIStoryboard = UIStoryboard(name: "DetailViewController", bundle: nil)
         let nextView = storyboard.instantiateInitialViewController() as! DetailViewController
         self.present(nextView, animated: true, completion: nil)
@@ -58,6 +82,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //            print(listJsonData)
             listJsonData.forEach {(_, listJsonData) in
                 let article: [String: String?] = [
+                    "id": listJsonData["article_id"].stringValue,
                     "title": listJsonData["article_title"].string,
                     "area": listJsonData["area"].string,
                     "category": listJsonData["category"].string
