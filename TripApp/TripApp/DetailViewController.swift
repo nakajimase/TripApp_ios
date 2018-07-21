@@ -5,11 +5,17 @@ import SVProgressHUD
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var detailTable: UITableView!
 
     private var article: [String: String?]!
-    private var article_id: Int!
+    private var article_id: String!
+
+    class func instantiate(article_id: String) -> DetailViewController {
+        let storyboard: UIStoryboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController() as! DetailViewController
+        controller.article_id = article_id
+        return controller
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.detailTable.register(UINib(nibName: "DetailContentsTextCell", bundle: nil), forCellReuseIdentifier: "DetailContentsTextCell")
         self.detailTable.register(UINib(nibName: "DetailMapCell", bundle: nil), forCellReuseIdentifier: "DetailMapCell")
 
-        article_id = 272
         getDetailData(withID: article_id)
     }
 
@@ -47,7 +52,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 1:
             return 65
         case 2:
-            return 500
+            return 400
         case 3:
             return 250
         default:
@@ -97,12 +102,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
-    @IBAction func backPage(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    func getDetailData(withID id: Int) {
-        Alamofire.request("http://13.59.253.231/article/getDetail/" + String(id)).responseJSON{ response in
+    func getDetailData(withID id: String) {
+        Alamofire.request("http://13.59.253.231/article/getDetail/" + id).responseJSON{ response in
             guard let object = response.result.value else {return}
             let listJsonData = JSON(object)
 //            print(listJsonData)

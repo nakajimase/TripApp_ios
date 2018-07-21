@@ -67,9 +67,9 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-        let nextView = storyboard.instantiateInitialViewController() as! DetailViewController
-        self.present(nextView, animated: true, completion: nil)
+        if let id = articlesList[indexPath.row]["id"] as? String {
+            self.show(DetailViewController.instantiate(article_id: id), sender: self)
+        }
     }
 
     func getData() {

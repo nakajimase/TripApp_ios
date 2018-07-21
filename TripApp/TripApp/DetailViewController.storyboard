@@ -18,15 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Afp-xe-4P7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backPage:" destination="8rx-Sw-Jak" eventType="touchUpInside" id="B3o-q3-GIo"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mrz-TQ-KmA">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
@@ -34,17 +27,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="q3w-V8-cBU" firstAttribute="bottom" secondItem="Mrz-TQ-KmA" secondAttribute="bottom" id="8kn-EV-VQ9"/>
-                            <constraint firstItem="Mrz-TQ-KmA" firstAttribute="top" secondItem="Afp-xe-4P7" secondAttribute="bottom" id="FVg-uk-a4b"/>
-                            <constraint firstItem="Afp-xe-4P7" firstAttribute="trailing" secondItem="q3w-V8-cBU" secondAttribute="trailing" id="NnS-5v-uH0"/>
+                            <constraint firstItem="Mrz-TQ-KmA" firstAttribute="top" secondItem="q3w-V8-cBU" secondAttribute="top" id="VAz-sP-mjX"/>
                             <constraint firstItem="q3w-V8-cBU" firstAttribute="trailing" secondItem="Mrz-TQ-KmA" secondAttribute="trailing" id="brc-qE-AOP"/>
-                            <constraint firstItem="Afp-xe-4P7" firstAttribute="top" secondItem="q3w-V8-cBU" secondAttribute="top" id="uRh-CH-4Ae"/>
                             <constraint firstItem="Mrz-TQ-KmA" firstAttribute="leading" secondItem="q3w-V8-cBU" secondAttribute="leading" id="uUp-rd-pVG"/>
-                            <constraint firstItem="Afp-xe-4P7" firstAttribute="leading" secondItem="q3w-V8-cBU" secondAttribute="leading" id="wbf-km-FLs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q3w-V8-cBU"/>
                     </view>
                     <connections>
-                        <outlet property="backBtn" destination="Afp-xe-4P7" id="vXn-8I-M9L"/>
                         <outlet property="detailTable" destination="Mrz-TQ-KmA" id="m8m-tX-iNg"/>
                     </connections>
                 </viewController>
