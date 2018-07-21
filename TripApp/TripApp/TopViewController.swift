@@ -6,8 +6,10 @@ import SVProgressHUD
 class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var listTableView: UITableView!
-    
+
     private var articlesList: [[String: String?]] = []
+    var article_id: Int!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +44,9 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.titleLabel?.text = article["title"] as? String
         cell.subLabel?.text = article["area"] as? String
         if let article_id = article["id"] as? String {
-//            var url = NSURL(string: "http://13.59.253.231/images/" + article_id + "/1.jpg")
-            var urlString = "http://13.59.253.231/images/" + article_id + "/1.jpg"
+            let urlString = "http://13.59.253.231/images/" + article_id + "/1.jpg"
             let CACHE_SEC : TimeInterval = 5 * 60
 
-//            Alamofire.request("http://13.59.253.231/images/" + article_id + "/1.jpg").responseJSON{ response in
-//                print(response)
-//            }
             let req = URLRequest(url: NSURL(string:urlString)! as URL,
                                  cachePolicy: .returnCacheDataElseLoad,
                                  timeoutInterval: CACHE_SEC);
@@ -60,9 +58,8 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     if((err) == nil){ //Success
                         let image = UIImage(data:data!)
                         cell.topImage.image = image
-                        
                     }else{ //Error
-                        print("AsyncImageView:Error \(err?.localizedDescription)");
+                        print("AsyncImageView:Error \(err?.localizedDescription)")
                     }
             }).resume();
         }
@@ -74,7 +71,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let nextView = storyboard.instantiateInitialViewController() as! DetailViewController
         self.present(nextView, animated: true, completion: nil)
     }
-    
+
     func getData() {
         Alamofire.request("http://13.59.253.231/article/getList").responseJSON{ response in
             guard let object = response.result.value else {return}

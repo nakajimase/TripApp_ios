@@ -2,6 +2,8 @@ import UIKit
 
 class DetailTopImageCell: UITableViewCell {
 
+    @IBOutlet weak var topImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

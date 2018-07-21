@@ -2,6 +2,9 @@ import UIKit
 
 class DetailTitleCell: UITableViewCell {
 
+    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var subTitle: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

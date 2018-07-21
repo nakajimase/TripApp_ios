@@ -2,6 +2,8 @@ import UIKit
 
 class DetailContentsTextCell: UITableViewCell {
 
+    @IBOutlet weak var detailContentText: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
