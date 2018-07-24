@@ -2,6 +2,8 @@ import UIKit
 
 class DetailMapCell: UITableViewCell {
 
+    @IBOutlet weak var mapView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

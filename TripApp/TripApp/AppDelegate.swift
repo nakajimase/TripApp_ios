@@ -1,16 +1,49 @@
 import UIKit
 import Firebase
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let cGoogleMapsAPIKey = "AIzaSyDKy5tH2wJaSDEAyqNj5PCtkSpGrGkkQO4"
+    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey(cGoogleMapsAPIKey)
+        locationManager.requestWhenInUseAuthorization()
         return true
+    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+
+            if (error != nil) {
+                print("Error: " + error!.localizedDescription)
+                return
+            }
+
+            if placemarks!.count > 0 {
+                let pm = placemarks![0] as CLPlacemark
+                self.displayLocationInfo(placemark: pm)
+            } else {
+                print("Error with the data.")
+            }
+        })
+    }
+    func displayLocationInfo(placemark: CLPlacemark) {
+
+        self.locationManager.stopUpdatingLocation()
+        print(placemark.locality)
+        print(placemark.postalCode)
+        print(placemark.administrativeArea)
+        print(placemark.country)
+    }
+
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error: " + error.localizedDescription)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

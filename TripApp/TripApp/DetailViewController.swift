@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import GoogleMaps
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -52,9 +53,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 1:
             return 65
         case 2:
-            return 400
+            return 300
         case 3:
-            return 250
+            return 300
         default:
             return 44
         }
@@ -95,6 +96,19 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailMapCell") as! DetailMapCell
+            let mapFrame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 30, height: 250)
+            let latitude = Double((article["latitude"] ?? "0")!)
+            let longitude = Double((article["longitude"] ?? "0")!)
+            let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 10)
+            let mapView = GMSMapView.map(withFrame: mapFrame, camera: camera)
+            mapView.isMyLocationEnabled = true
+            cell.mapView.addSubview(mapView)
+
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2DMake(latitude!, longitude!)
+            marker.title = "The Imperial Palace"
+            marker.snippet = "Tokyo"
+            marker.map = mapView
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopImageCell") as! DetailTopImageCell

@@ -10,5 +10,6 @@ target 'TripApp' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
+  pod 'GoogleMaps'
 
 end
