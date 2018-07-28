@@ -106,8 +106,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2DMake(latitude!, longitude!)
-            marker.title = "The Imperial Palace"
-            marker.snippet = "Tokyo"
+            marker.title = article["title"] as? String
+            marker.snippet = article["address"] as? String
             marker.map = mapView
             return cell
         default:

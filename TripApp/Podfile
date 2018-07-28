@@ -8,6 +8,7 @@ target 'TripApp' do
   # Pods for TripApp
   pod 'Firebase/Core'
   pod 'Alamofire'
+  pod 'AlamofireImage'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
   pod 'GoogleMaps'

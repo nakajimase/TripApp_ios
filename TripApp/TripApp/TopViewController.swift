@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 import SVProgressHUD
 
@@ -19,9 +20,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.listTableView.dataSource = self
         
         self.listTableView.register(UINib(nibName: "TopTableViewCell", bundle: nil), forCellReuseIdentifier: "TopTableViewCell")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+
         getData()
     }
 
@@ -44,24 +43,34 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.titleLabel?.text = article["title"] as? String
         cell.subLabel?.text = article["area"] as? String
         if let article_id = article["id"] as? String {
-            let urlString = "http://13.59.253.231/images/" + article_id + "/1.jpg"
-            let CACHE_SEC : TimeInterval = 5 * 60
+            let urlDomain = "http://13.59.253.231"
+            let urlPath = "/images/" + article_id + "/1.jpg"
+            let urlString = urlDomain + urlPath
 
-            let req = URLRequest(url: NSURL(string:urlString)! as URL,
-                                 cachePolicy: .returnCacheDataElseLoad,
-                                 timeoutInterval: CACHE_SEC);
-            let conf =  URLSessionConfiguration.default;
-            let session = URLSession(configuration: conf, delegate: nil, delegateQueue: OperationQueue.main);
+            cell.topImage.image = UIImage(named: "Image")
+            if let url = NSURL(string: urlString) {
+                cell.topImage.af_setImage(withURL: url as URL)
+            }
             
-            session.dataTask(with: req, completionHandler:
-                { (data, resp, err) in
-                    if((err) == nil){ //Success
-                        let image = UIImage(data:data!)
-                        cell.topImage.image = image
-                    }else{ //Error
-                        print("AsyncImageView:Error \(err?.localizedDescription)")
-                    }
-            }).resume();
+//            let CACHE_SEC : TimeInterval = 5 * 60
+//            let req = URLRequest(url: NSURL(string:urlString)! as URL,
+//                                 cachePolicy: .returnCacheDataElseLoad,
+//                                 timeoutInterval: CACHE_SEC);
+//            let conf =  URLSessionConfiguration.default;
+//            let session = URLSession(configuration: conf, delegate: nil, delegateQueue: OperationQueue.main);
+//
+//            cell.topImage.image = UIImage(named: "Image")
+//            session.dataTask(with: req, completionHandler:
+//                { (data, resp, err) in
+//                    if((err) == nil){ //Success
+//                        if resp?.url?.path == urlPath {
+//                            let image = UIImage(data:data!)
+//                            cell.topImage.image = image
+//                        }
+//                    }else{ //Error
+//                        print("AsyncImageView:Error \(err?.localizedDescription)")
+//                    }
+//            }).resume();
         }
         return cell
     }
