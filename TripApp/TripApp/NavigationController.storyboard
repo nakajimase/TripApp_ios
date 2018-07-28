@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-978" y="120"/>
         </scene>
-        <!--TopViewController-->
+        <!--TabBarController-->
         <scene sceneID="tHw-My-OMU">
             <objects>
-                <viewControllerPlaceholder storyboardName="TopViewController" id="q10-vr-yhO" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="TabBarController" id="q10-vr-yhO" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="WLT-xM-oZ0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBW-e9-g1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
