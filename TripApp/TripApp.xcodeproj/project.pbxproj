@@ -20,6 +20,14 @@
 		B4333756210C07F400D642C8 /* MypageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4333755210C07F400D642C8 /* MypageViewController.storyboard */; };
 		B4333758210C08E900D642C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4333757210C08E900D642C8 /* SearchViewController.swift */; };
 		B433375A210C090000D642C8 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4333759210C090000D642C8 /* SearchViewController.storyboard */; };
+		B433375D210C122500D642C8 /* MyPageImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433375B210C122500D642C8 /* MyPageImageCell.swift */; };
+		B433375E210C122500D642C8 /* MyPageImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B433375C210C122500D642C8 /* MyPageImageCell.xib */; };
+		B4333761210C125C00D642C8 /* MyPageUserNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */; };
+		B4333762210C125C00D642C8 /* MyPageUserNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */; };
+		B4333769210C15FF00D642C8 /* MyPageUserAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4333767210C15FF00D642C8 /* MyPageUserAddCell.swift */; };
+		B433376A210C15FF00D642C8 /* MyPageUserAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */; };
+		B433376E210C23F700D642C8 /* MyPageUserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */; };
+		B4333770210C240F00D642C8 /* MyPageUserAddViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */; };
 		B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490455E20F9FE4900B2BF52 /* DetailViewController.swift */; };
 		B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */; };
 		B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490456C20FAD5B400B2BF52 /* NavigationController.swift */; };
@@ -54,6 +62,14 @@
 		B4333755210C07F400D642C8 /* MypageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageViewController.storyboard; sourceTree = "<group>"; };
 		B4333757210C08E900D642C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B4333759210C090000D642C8 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		B433375B210C122500D642C8 /* MyPageImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageImageCell.swift; sourceTree = "<group>"; };
+		B433375C210C122500D642C8 /* MyPageImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageImageCell.xib; sourceTree = "<group>"; };
+		B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserNameCell.swift; sourceTree = "<group>"; };
+		B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageUserNameCell.xib; sourceTree = "<group>"; };
+		B4333767210C15FF00D642C8 /* MyPageUserAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserAddCell.swift; sourceTree = "<group>"; };
+		B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageUserAddCell.xib; sourceTree = "<group>"; };
+		B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserAddViewController.swift; sourceTree = "<group>"; };
+		B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageUserAddViewController.storyboard; sourceTree = "<group>"; };
 		B490455E20F9FE4900B2BF52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		B490456C20FAD5B400B2BF52 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -131,10 +147,18 @@
 				B4333759210C090000D642C8 /* SearchViewController.storyboard */,
 				B4333753210C07E000D642C8 /* MypageViewController.swift */,
 				B4333755210C07F400D642C8 /* MypageViewController.storyboard */,
+				B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */,
+				B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */,
 				B490455E20F9FE4900B2BF52 /* DetailViewController.swift */,
 				B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */,
 				B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */,
 				B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */,
+				B4333767210C15FF00D642C8 /* MyPageUserAddCell.swift */,
+				B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */,
+				B433375B210C122500D642C8 /* MyPageImageCell.swift */,
+				B433375C210C122500D642C8 /* MyPageImageCell.xib */,
+				B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */,
+				B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */,
 				B490457220FF605900B2BF52 /* DetailTopImageCell.swift */,
 				B490457320FF605900B2BF52 /* DetailTopImageCell.xib */,
 				B490457620FF608D00B2BF52 /* DetailTitleCell.swift */,
@@ -212,20 +236,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B433376A210C15FF00D642C8 /* MyPageUserAddCell.xib in Resources */,
 				B490457920FF608D00B2BF52 /* DetailTitleCell.xib in Resources */,
 				B490457520FF605900B2BF52 /* DetailTopImageCell.xib in Resources */,
 				B490458120FF610D00B2BF52 /* DetailMapCell.xib in Resources */,
 				B433375A210C090000D642C8 /* SearchViewController.storyboard in Resources */,
 				B410E13920E87DAB0017127B /* LaunchScreen.storyboard in Resources */,
 				B490457D20FF60EB00B2BF52 /* DetailContentsTextCell.xib in Resources */,
+				B433375E210C122500D642C8 /* MyPageImageCell.xib in Resources */,
 				B4333756210C07F400D642C8 /* MypageViewController.storyboard in Resources */,
 				B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */,
 				B4333752210C06FB00D642C8 /* TabBarController.storyboard in Resources */,
+				B4333762210C125C00D642C8 /* MyPageUserNameCell.xib in Resources */,
 				B4BC267720F4CF3E00E2BCBE /* TopTableViewCell.xib in Resources */,
 				B410E13620E87DAB0017127B /* Assets.xcassets in Resources */,
 				B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */,
 				B410E13420E87DA40017127B /* TopViewController.storyboard in Resources */,
 				B490456F20FAD5C900B2BF52 /* NavigationController.storyboard in Resources */,
+				B4333770210C240F00D642C8 /* MyPageUserAddViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4333761210C125C00D642C8 /* MyPageUserNameCell.swift in Sources */,
 				B490457820FF608D00B2BF52 /* DetailTitleCell.swift in Sources */,
+				B433376E210C23F700D642C8 /* MyPageUserAddViewController.swift in Sources */,
 				B490458020FF610D00B2BF52 /* DetailMapCell.swift in Sources */,
 				B410E13120E87DA30017127B /* TopViewController.swift in Sources */,
 				B4333750210C06E500D642C8 /* TabBarController.swift in Sources */,
@@ -311,7 +341,9 @@
 				B490457420FF605900B2BF52 /* DetailTopImageCell.swift in Sources */,
 				B4333758210C08E900D642C8 /* SearchViewController.swift in Sources */,
 				B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */,
+				B433375D210C122500D642C8 /* MyPageImageCell.swift in Sources */,
 				B490457C20FF60EB00B2BF52 /* DetailContentsTextCell.swift in Sources */,
+				B4333769210C15FF00D642C8 /* MyPageUserAddCell.swift in Sources */,
 				B4BC267620F4CF3E00E2BCBE /* TopTableViewCell.swift in Sources */,
 				B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */,
 				B4333754210C07E000D642C8 /* MypageViewController.swift in Sources */,

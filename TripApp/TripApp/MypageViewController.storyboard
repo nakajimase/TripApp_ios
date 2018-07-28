@@ -17,9 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="WeJ-kK-nBB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6bl-Kv-Lqz">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6bl-Kv-Lqz" firstAttribute="leading" secondItem="mqC-6I-xhd" secondAttribute="leading" id="EXP-Tt-aqy"/>
+                            <constraint firstItem="6bl-Kv-Lqz" firstAttribute="top" secondItem="mqC-6I-xhd" secondAttribute="top" id="Hxt-Jo-oZA"/>
+                            <constraint firstItem="mqC-6I-xhd" firstAttribute="trailing" secondItem="6bl-Kv-Lqz" secondAttribute="trailing" id="KvT-GS-PYZ"/>
+                            <constraint firstItem="mqC-6I-xhd" firstAttribute="bottom" secondItem="6bl-Kv-Lqz" secondAttribute="bottom" id="QRe-5K-tQg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mqC-6I-xhd"/>
                     </view>
+                    <connections>
+                        <outlet property="myPageTable" destination="6bl-Kv-Lqz" id="Bbr-2Z-XPQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1W-w6-3oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

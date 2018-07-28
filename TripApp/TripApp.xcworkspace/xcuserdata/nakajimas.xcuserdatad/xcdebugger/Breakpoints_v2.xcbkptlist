@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TripApp/DetailViewController.swift"
-            timestampString = "554436948.6018651"
+            timestampString = "554444719.750185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -26,12 +26,12 @@
                   moduleName = "TripApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nakajimas/TripApp_ios/TripApp/TripApp/DetailViewController.swift"
-                  timestampString = "554354516.3473409"
+                  timestampString = "554443989.6837111"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
                   endingLineNumber = "120"
-                  offsetFromSymbolStart = "29">
+                  offsetFromSymbolStart = "40">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,7 +41,7 @@
                   moduleName = "TripApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nakajimas/TripApp_ios/TripApp/TripApp/DetailViewController.swift"
-                  timestampString = "554354516.353044"
+                  timestampString = "554443989.68599"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "121"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TripApp/DetailViewController.swift"
-            timestampString = "554436948.601981"
+            timestampString = "554444719.751166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
