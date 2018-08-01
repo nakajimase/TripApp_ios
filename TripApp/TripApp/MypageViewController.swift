@@ -1,8 +1,11 @@
 import UIKit
+import FirebaseAuth
 
 class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var myPageTable: UITableView!
+
+    private var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,6 +16,13 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.myPageTable.register(UINib(nibName: "MyPageUserAddCell", bundle: nil), forCellReuseIdentifier: "MyPageUserAddCell")
         self.myPageTable.register(UINib(nibName: "MyPageImageCell", bundle: nil), forCellReuseIdentifier: "MyPageImageCell")
         self.myPageTable.register(UINib(nibName: "MyPageUserNameCell", bundle: nil), forCellReuseIdentifier: "MyPageUserNameCell")
+
+        if Auth.auth().currentUser != nil {
+            print("User is signed in")
+            user = Auth.auth().currentUser
+        } else {
+            print("No user is signed in")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +60,11 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageUserNameCell") as! MyPageUserNameCell
+            if let user = user {
+                cell.loginUserName.text = user.email! + "さん"
+            } else {
+                cell.loginUserName.text = "未登録"
+            }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageImageCell") as! MyPageImageCell

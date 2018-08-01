@@ -2,6 +2,7 @@ import UIKit
 
 class MyPageUserNameCell: UITableViewCell {
 
+    @IBOutlet weak var loginUserName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

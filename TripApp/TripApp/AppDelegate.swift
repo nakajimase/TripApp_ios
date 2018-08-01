@@ -1,21 +1,99 @@
 import UIKit
 import Firebase
+import FirebaseUI
+import FirebaseAuth
+import GoogleSignIn
 import GoogleMaps
+import FBSDKLoginKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate {
 
     var window: UIWindow?
     let cGoogleMapsAPIKey = "AIzaSyDKy5tH2wJaSDEAyqNj5PCtkSpGrGkkQO4"
     let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Use Firebase library to configure APIs
         FirebaseApp.configure()
+
+        // Google Login
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(cGoogleMapsAPIKey)
         locationManager.requestWhenInUseAuthorization()
         return true
     }
+
+    // Google Login
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        // Googleのトークンを渡し、Firebaseクレデンシャルを取得する。
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                          accessToken: authentication.accessToken)
+        // Firebaseにログインする。
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print("login failed! \(error)")
+                return
+            }
+            if let user = user {
+                print("user : \(user.email) has been signed in successfully.")
+            } else {
+                print("Sign on Firebase successfully")
+                // performSegue でログイン後のVCへ遷移させる。
+            }
+        }
+    }
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Sign off successfully")
+    }
+
+
+
+
+    // Facebook Login
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print("login failed! \(error)")
+                return
+            }
+            if let user = user {
+                print("user : \(user.email) has been signed in successfully.")
+            } else {
+                print("Sign on Firebase successfully")
+                // User is signed in
+            }
+        }
+    }
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    }
+
+
+
+
+
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
@@ -67,7 +145,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
