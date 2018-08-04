@@ -13,30 +13,55 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="330" id="KGk-i7-Jjw" customClass="DetailMapCell" customModule="TripApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="370" id="KGk-i7-Jjw" customClass="DetailMapCell" customModule="TripApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="329.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="369.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yH-rO-bj1">
-                        <rect key="frame" x="16" y="11" width="288" height="308"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhy-Nd-nKS">
+                        <rect key="frame" x="16" y="11" width="288" height="348"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-tS-ZH1">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="348"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEE-M1-FV6">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yH-rO-bj1">
+                                        <rect key="frame" x="0.0" y="48" width="288" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="vUe-Ca-jq0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="308" id="Nf6-9G-nBj"/>
+                            <constraint firstAttribute="bottom" secondItem="ahB-tS-ZH1" secondAttribute="bottom" id="Dpx-nX-fIF"/>
+                            <constraint firstAttribute="trailing" secondItem="ahB-tS-ZH1" secondAttribute="trailing" id="Gs2-H1-zaZ"/>
+                            <constraint firstAttribute="height" constant="348" id="dBx-aY-lkk"/>
+                            <constraint firstItem="ahB-tS-ZH1" firstAttribute="leading" secondItem="zhy-Nd-nKS" secondAttribute="leading" id="vv8-K2-gLP"/>
+                            <constraint firstItem="ahB-tS-ZH1" firstAttribute="top" secondItem="zhy-Nd-nKS" secondAttribute="top" id="yHp-5p-Iof"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="3yH-rO-bj1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="6i0-hQ-Z5Z"/>
-                    <constraint firstItem="3yH-rO-bj1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="CHK-EP-BhM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="3yH-rO-bj1" secondAttribute="trailing" id="INs-nS-ZDC"/>
-                    <constraint firstItem="3yH-rO-bj1" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="MBf-u8-UHY"/>
+                    <constraint firstItem="zhy-Nd-nKS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="2cq-gx-bCh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zhy-Nd-nKS" secondAttribute="trailing" id="FBE-J6-WdJ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zhy-Nd-nKS" secondAttribute="bottom" id="TET-HU-QmG"/>
+                    <constraint firstItem="zhy-Nd-nKS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bUl-qP-4N1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressText" destination="xEE-M1-FV6" id="sLC-GT-SyR"/>
                 <outlet property="mapView" destination="3yH-rO-bj1" id="6co-4c-Cuk"/>
             </connections>
             <point key="canvasLocation" x="34" y="149.5"/>

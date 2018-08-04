@@ -88,7 +88,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailMapCell") as! DetailMapCell
-            let mapFrame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 30, height: 250)
+            let mapFrame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 30, height: 300)
             let latitude = Double((article["latitude"] ?? "0")!)
             let longitude = Double((article["longitude"] ?? "0")!)
             let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 10)
@@ -101,6 +101,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             marker.title = article["title"] as? String
             marker.snippet = article["address"] as? String
             marker.map = mapView
+
+            cell.addressText.text = article["address"] as? String
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopImageCell") as! DetailTopImageCell

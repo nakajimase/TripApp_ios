@@ -21,6 +21,9 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.listTableView.register(UINib(nibName: "TopTableViewCell", bundle: nil), forCellReuseIdentifier: "TopTableViewCell")
 
+        listTableView.rowHeight = UITableViewAutomaticDimension
+        listTableView.estimatedRowHeight = 1000
+
         getData()
     }
 
@@ -35,6 +38,10 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             return self.articlesList.count
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

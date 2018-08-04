@@ -3,6 +3,7 @@ import UIKit
 class DetailMapCell: UITableViewCell {
 
     @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var addressText: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
