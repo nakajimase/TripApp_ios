@@ -54,11 +54,12 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let urlPath = "/images/" + article_id + "/1.jpg"
             let urlString = urlDomain + urlPath
 
-            cell.topImage.image = UIImage(named: "Image")
+            let placeholderImage = UIImage(named: "Image")
+            let filter = AspectScaledToFillSizeFilter(size: cell.topImage.frame.size)
             if let url = NSURL(string: urlString) {
-                cell.topImage.af_setImage(withURL: url as URL)
+                cell.topImage.af_setImage(withURL: url as URL, placeholderImage: placeholderImage, filter: filter)
             }
-            
+
 //            let CACHE_SEC : TimeInterval = 5 * 60
 //            let req = URLRequest(url: NSURL(string:urlString)! as URL,
 //                                 cachePolicy: .returnCacheDataElseLoad,

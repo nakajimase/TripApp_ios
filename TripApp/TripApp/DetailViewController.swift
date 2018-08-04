@@ -21,6 +21,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 画面のどの位置をスワイプしても戻れるようにする。
+        let target = self.navigationController?.value(forKey: "_cachedInteractionController")
+        let recognizer = UIPanGestureRecognizer(target: target, action: Selector(("handleNavigationTransition:")))
+        self.view.addGestureRecognizer(recognizer)
+
         // Do any additional setup after loading the view.
         self.detailTable.delegate = self
         self.detailTable.dataSource = self
