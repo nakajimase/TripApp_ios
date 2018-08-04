@@ -22,7 +22,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.listTableView.register(UINib(nibName: "TopTableViewCell", bundle: nil), forCellReuseIdentifier: "TopTableViewCell")
 
         listTableView.rowHeight = UITableViewAutomaticDimension
-        listTableView.estimatedRowHeight = 1000
+        listTableView.estimatedRowHeight = 100
 
         getData()
     }
