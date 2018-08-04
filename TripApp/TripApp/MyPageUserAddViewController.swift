@@ -11,7 +11,6 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKL
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var passwordLabel: UITextField!
-    @IBOutlet weak var createUserBtn: UIButton!
     @IBOutlet weak var googleBtn: UIView!
     @IBOutlet weak var facebookBtn: UIView!
 
@@ -22,11 +21,8 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKL
         // ...
 
         // Do any additional setup after loading the view.
-        label1.text = "E-mail"
         emailLabel.text = "testtest@gmail.com"
-        label2.text = "Password"
         passwordLabel.text = "testtest"
-        createUserBtn.setTitle("新規作成/ログイン", for: .normal)
 
         // Google Login
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -76,12 +72,8 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKL
 
 
 
-    // User/Password Create/Login
-    @IBAction func createUserTaped(_ sender: UIButton) {
-        // ユーザ新規作成のメソッド
+    @IBAction func createUserTapped(_ sender: UIButton) {
         Auth.auth().createUser(withEmail: emailLabel.text!, password: passwordLabel.text!) { (user, error) in
-        // ユーザログインのメソッド
-//        Auth.auth().signIn(withEmail: emailLabel.text!, password: passwordLabel.text!) {(user, error) in
         if user != nil {
                 print("success")
                 print(user?.user.email)
@@ -90,6 +82,25 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKL
                 self.emailLabel.text = ""
                 self.passwordLabel.text = ""
             }
+        }
+    }
+
+    @IBAction func loginUserTapped(_ sender: UIButton) {
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signIn(withEmail: emailLabel.text!, password: passwordLabel.text!) {(user, error) in
+                if user != nil {
+                    print("Login Success")
+                    print(user?.user.email)
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    print("Login Error")
+                    self.emailLabel.text = ""
+                    self.passwordLabel.text = ""
+                }
+            }
+        } else {
+            print("すでにログインされています")
+            print(Auth.auth().currentUser?.email)
         }
     }
 

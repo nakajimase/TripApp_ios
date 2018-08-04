@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		54EAFAFA44533241503007AB /* Pods_TripApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */; };
+		B40E79462115A116001535A3 /* MyPageTableTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E79442115A116001535A3 /* MyPageTableTabCell.swift */; };
+		B40E79472115A116001535A3 /* MyPageTableTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B40E79452115A116001535A3 /* MyPageTableTabCell.xib */; };
 		B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E12E20E87DA30017127B /* AppDelegate.swift */; };
 		B410E13120E87DA30017127B /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E13020E87DA30017127B /* TopViewController.swift */; };
 		B410E13420E87DA40017127B /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410E13220E87DA40017127B /* TopViewController.storyboard */; };
@@ -48,6 +50,8 @@
 		1D77289334AF20487437B27C /* Pods-TripApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripApp/Pods-TripApp.debug.xcconfig"; sourceTree = "<group>"; };
 		73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D28D6BA3BCAAC001C10C26F /* Pods-TripApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TripApp/Pods-TripApp.release.xcconfig"; sourceTree = "<group>"; };
+		B40E79442115A116001535A3 /* MyPageTableTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableTabCell.swift; sourceTree = "<group>"; };
+		B40E79452115A116001535A3 /* MyPageTableTabCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageTableTabCell.xib; sourceTree = "<group>"; };
 		B410E12B20E87DA30017127B /* TripApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B410E12E20E87DA30017127B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B410E13020E87DA30017127B /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				B433375C210C122500D642C8 /* MyPageImageCell.xib */,
 				B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */,
 				B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */,
+				B40E79442115A116001535A3 /* MyPageTableTabCell.swift */,
+				B40E79452115A116001535A3 /* MyPageTableTabCell.xib */,
 				B490457220FF605900B2BF52 /* DetailTopImageCell.swift */,
 				B490457320FF605900B2BF52 /* DetailTopImageCell.xib */,
 				B490457620FF608D00B2BF52 /* DetailTitleCell.swift */,
@@ -249,6 +255,7 @@
 				B4333752210C06FB00D642C8 /* TabBarController.storyboard in Resources */,
 				B4333762210C125C00D642C8 /* MyPageUserNameCell.xib in Resources */,
 				B4BC267720F4CF3E00E2BCBE /* TopTableViewCell.xib in Resources */,
+				B40E79472115A116001535A3 /* MyPageTableTabCell.xib in Resources */,
 				B410E13620E87DAB0017127B /* Assets.xcassets in Resources */,
 				B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */,
 				B410E13420E87DA40017127B /* TopViewController.storyboard in Resources */,
@@ -389,6 +396,7 @@
 				B4333750210C06E500D642C8 /* TabBarController.swift in Sources */,
 				B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */,
 				B490457420FF605900B2BF52 /* DetailTopImageCell.swift in Sources */,
+				B40E79462115A116001535A3 /* MyPageTableTabCell.swift in Sources */,
 				B4333758210C08E900D642C8 /* SearchViewController.swift in Sources */,
 				B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */,
 				B433375D210C122500D642C8 /* MyPageImageCell.swift in Sources */,

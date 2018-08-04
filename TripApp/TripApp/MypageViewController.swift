@@ -16,6 +16,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.myPageTable.register(UINib(nibName: "MyPageUserAddCell", bundle: nil), forCellReuseIdentifier: "MyPageUserAddCell")
         self.myPageTable.register(UINib(nibName: "MyPageImageCell", bundle: nil), forCellReuseIdentifier: "MyPageImageCell")
         self.myPageTable.register(UINib(nibName: "MyPageUserNameCell", bundle: nil), forCellReuseIdentifier: "MyPageUserNameCell")
+        self.myPageTable.register(UINib(nibName: "MyPageTableTabCell", bundle: nil), forCellReuseIdentifier: "MyPageTableTabCell")
 
         if Auth.auth().currentUser != nil {
             print("User is signed in")
@@ -34,7 +35,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,6 +52,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageImageCell") as! MyPageImageCell
+            cell.MyImage.image = UIImage(named: "Image")
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageUserNameCell") as! MyPageUserNameCell
@@ -62,6 +64,9 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.logoutBtn.addTarget(self,
                                      action: #selector(self.logoutBtnTapped(sender:)),
                                      for: .touchUpInside)
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableTabCell") as! MyPageTableTabCell
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageImageCell") as! MyPageImageCell
@@ -75,12 +80,16 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @objc func logoutBtnTapped(sender: AnyObject) {
         let firebaseAuth = Auth.auth()
-        print(firebaseAuth.currentUser ?? "未ログイン")
-        do {
-            try firebaseAuth.signOut()
-            print(firebaseAuth.currentUser ?? "未ログイン")
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        if firebaseAuth.currentUser != nil {
+            print(firebaseAuth.currentUser?.email)
+            do {
+                try firebaseAuth.signOut()
+                print(firebaseAuth.currentUser?.email ?? "Logout Success")
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        } else {
+            print("ログインしているユーザはありません。")
         }
     }
 
