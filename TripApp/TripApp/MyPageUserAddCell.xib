@@ -19,16 +19,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukW-k3-AHm">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHa-Co-rNC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                        <state key="normal" title="Button"/>
-                    </button>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukW-k3-AHm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43.5" id="bnL-PZ-rnw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ukW-k3-AHm" firstAttribute="top" secondItem="IHa-Co-rNC" secondAttribute="top" id="2W0-F1-pKm"/>
+                            <constraint firstAttribute="trailing" secondItem="ukW-k3-AHm" secondAttribute="trailing" id="3JJ-4d-9BE"/>
+                            <constraint firstAttribute="bottom" secondItem="ukW-k3-AHm" secondAttribute="bottom" id="a3z-RW-Flh"/>
+                            <constraint firstItem="ukW-k3-AHm" firstAttribute="leading" secondItem="IHa-Co-rNC" secondAttribute="leading" id="gGG-xh-UyY"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ukW-k3-AHm" secondAttribute="trailing" id="3HG-lN-dUt"/>
-                    <constraint firstAttribute="bottom" secondItem="ukW-k3-AHm" secondAttribute="bottom" id="NCg-tJ-QRT"/>
-                    <constraint firstItem="ukW-k3-AHm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bt4-q6-bEK"/>
-                    <constraint firstItem="ukW-k3-AHm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xq2-Xn-b1e"/>
+                    <constraint firstItem="IHa-Co-rNC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dxy-Kw-tzD"/>
+                    <constraint firstAttribute="trailing" secondItem="IHa-Co-rNC" secondAttribute="trailing" id="h1U-4v-XBy"/>
+                    <constraint firstAttribute="bottom" secondItem="IHa-Co-rNC" secondAttribute="bottom" id="xcK-3k-quu"/>
+                    <constraint firstItem="IHa-Co-rNC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xzt-AW-3lv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -3,6 +3,8 @@ import UIKit
 class MyPageUserNameCell: UITableViewCell {
 
     @IBOutlet weak var loginUserName: UILabel!
+    @IBOutlet weak var logoutBtn: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

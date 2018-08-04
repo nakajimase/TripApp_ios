@@ -31,6 +31,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.detailTable.register(UINib(nibName: "DetailMapCell", bundle: nil), forCellReuseIdentifier: "DetailMapCell")
 
         getDetailData(withID: article_id)
+
+        detailTable.rowHeight = UITableViewAutomaticDimension
+        detailTable.estimatedRowHeight = 1000
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,18 +50,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 250
-        case 1:
-            return 65
-        case 2:
-            return 300
-        case 3:
-            return 300
-        default:
-            return 44
-        }
+        return UITableViewAutomaticDimension
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

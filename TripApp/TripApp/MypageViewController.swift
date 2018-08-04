@@ -23,6 +23,9 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             print("No user is signed in")
         }
+
+        myPageTable.rowHeight = UITableViewAutomaticDimension
+        myPageTable.estimatedRowHeight = 1000
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,16 +38,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 55
-        case 1:
-            return 200
-        case 3:
-            return 55
-        default:
-            return 55
-        }
+        return UITableViewAutomaticDimension
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,6 +59,9 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             } else {
                 cell.loginUserName.text = "未登録"
             }
+            cell.logoutBtn.addTarget(self,
+                                     action: #selector(self.logoutBtnTapped(sender:)),
+                                     for: .touchUpInside)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageImageCell") as! MyPageImageCell
@@ -74,6 +71,17 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @objc func buttonTapped(sender : AnyObject) {
         self.show(MyPageUserAddViewController.instantiate(), sender: self)
+    }
+
+    @objc func logoutBtnTapped(sender: AnyObject) {
+        let firebaseAuth = Auth.auth()
+        print(firebaseAuth.currentUser ?? "未ログイン")
+        do {
+            try firebaseAuth.signOut()
+            print(firebaseAuth.currentUser ?? "未ログイン")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
 
 }
