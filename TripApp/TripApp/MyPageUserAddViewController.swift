@@ -5,7 +5,7 @@ import FirebaseUI
 import GoogleSignIn
 import FBSDKLoginKit
 
-class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
+class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var emailLabel: UITextField!
@@ -26,6 +26,8 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKL
 
         // Google Login
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         let signInButton = GIDSignInButton()
         googleBtn.addSubview(signInButton)
 
@@ -105,6 +107,35 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, FBSDKL
     }
 
     // Google Login
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        // Googleのトークンを渡し、Firebaseクレデンシャルを取得する。
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        // Firebaseにログインする。
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print("login failed! \(error)")
+                return
+            }
+            // すでに登録済みのユーザはどうやって判定するか。
+//            if let user = user {
+//                print("user : \(user.email) has been signed in successfully.")
+//            } else {
+                print("Sign on Firebase successfully")
+                // performSegue でログイン後のVCへ遷移させる。
+                self.navigationController?.popViewController(animated: true)
+//            }
+        }
+    }
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Sign off successfully")
+    }
+
 //    @IBAction func googleLogin(_ sender: UIButton) {
 ////        GIDSignIn.sharedInstance().signIn()
 //        let authUI = FUIAuth.defaultAuthUI()
