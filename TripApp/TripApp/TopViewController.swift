@@ -59,26 +59,6 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             if let url = NSURL(string: urlString) {
                 cell.topImage.af_setImage(withURL: url as URL, placeholderImage: placeholderImage, filter: filter)
             }
-
-//            let CACHE_SEC : TimeInterval = 5 * 60
-//            let req = URLRequest(url: NSURL(string:urlString)! as URL,
-//                                 cachePolicy: .returnCacheDataElseLoad,
-//                                 timeoutInterval: CACHE_SEC);
-//            let conf =  URLSessionConfiguration.default;
-//            let session = URLSession(configuration: conf, delegate: nil, delegateQueue: OperationQueue.main);
-//
-//            cell.topImage.image = UIImage(named: "Image")
-//            session.dataTask(with: req, completionHandler:
-//                { (data, resp, err) in
-//                    if((err) == nil){ //Success
-//                        if resp?.url?.path == urlPath {
-//                            let image = UIImage(data:data!)
-//                            cell.topImage.image = image
-//                        }
-//                    }else{ //Error
-//                        print("AsyncImageView:Error \(err?.localizedDescription)")
-//                    }
-//            }).resume();
         }
         return cell
     }

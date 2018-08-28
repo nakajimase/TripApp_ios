@@ -4,6 +4,8 @@ import FirebaseAuth
 import FirebaseUI
 import GoogleSignIn
 import FBSDKLoginKit
+import SwiftyJSON
+import Alamofire
 
 class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate {
 
@@ -73,20 +75,30 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
 
 
 
-
+    // E-mail User Create
     @IBAction func createUserTapped(_ sender: UIButton) {
         Auth.auth().createUser(withEmail: emailLabel.text!, password: passwordLabel.text!) { (user, error) in
-        if user != nil {
-                print("success")
-                print(user?.user.email)
+            if user != nil {
+                print("Firebase Success")
+                print(user?.user.email ?? "")
+                let urlString = "http://13.59.253.231/user/add"
+                let parameters: Parameters = [
+                    "email_address": self.emailLabel.text ?? "",
+                    "password": self.passwordLabel.text ?? ""
+                ]
+
+                Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                    .responseJSON { response in
+                        debugPrint(response)
+                        print(response.result)
+                }
             } else {
-                print("error")
-                self.emailLabel.text = ""
-                self.passwordLabel.text = ""
+                print("Firebase Error")
             }
         }
     }
 
+    // E-mail Login
     @IBAction func loginUserTapped(_ sender: UIButton) {
         if Auth.auth().currentUser == nil {
             Auth.auth().signIn(withEmail: emailLabel.text!, password: passwordLabel.text!) {(user, error) in
