@@ -13,7 +13,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var passwordLabel: UITextField!
-    @IBOutlet weak var googleBtn: UIView!
+    @IBOutlet weak var googleBtn: GIDSignInButton!
     @IBOutlet weak var facebookBtn: UIView!
 
     override func viewDidLoad() {
@@ -30,8 +30,6 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        let signInButton = GIDSignInButton()
-        googleBtn.addSubview(signInButton)
 
         // Facebook Login
         let loginButton = FBSDKLoginButton()
@@ -81,17 +79,18 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             if user != nil {
                 print("Firebase Success")
                 print(user?.user.email ?? "")
-                let urlString = "http://13.59.253.231/user/add"
-                let parameters: Parameters = [
-                    "email_address": self.emailLabel.text ?? "",
-                    "password": self.passwordLabel.text ?? ""
-                ]
-
-                Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-                    .responseJSON { response in
-                        debugPrint(response)
-                        print(response.result)
-                }
+                self.addDatabase(user: self.emailLabel.text ?? "", password: self.passwordLabel.text ?? "")
+//                let urlString = "http://13.59.253.231/user/add"
+//                let parameters: Parameters = [
+//                    "email_address": self.emailLabel.text ?? "",
+//                    "password": self.passwordLabel.text ?? ""
+//                ]
+//
+//                Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+//                    .responseJSON { response in
+//                        debugPrint(response)
+//                        print(response.result)
+//                }
             } else {
                 print("Firebase Error")
             }
@@ -134,18 +133,34 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
                 print("login failed! \(error)")
                 return
             }
-            // すでに登録済みのユーザはどうやって判定するか。
+            // すでに登録済みのユーザはどうやって判定するか。TODO
 //            if let user = user {
 //                print("user : \(user.email) has been signed in successfully.")
 //            } else {
                 print("Sign on Firebase successfully")
-                // performSegue でログイン後のVCへ遷移させる。
-                self.navigationController?.popViewController(animated: true)
+
+                self.addDatabase(user: user?.email ?? "", password: "")
 //            }
+            // performSegue でログイン後のVCへ遷移させる。
+            self.navigationController?.popViewController(animated: true)
         }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         print("Sign off successfully")
+    }
+    
+    func addDatabase(user: String, password: String) {
+        let urlString = "http://13.59.253.231/user/add"
+        let parameters: Parameters = [
+            "email_address": user,
+            "password": password
+        ]
+        
+        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                debugPrint(response)
+                print(response.result)
+        }
     }
 
 //    @IBAction func googleLogin(_ sender: UIButton) {
