@@ -1,6 +1,5 @@
 import UIKit
 import Firebase
-import FirebaseAuth
 import FirebaseUI
 import GoogleSignIn
 import FBSDKLoginKit
@@ -14,7 +13,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var googleBtn: GIDSignInButton!
-    @IBOutlet weak var facebookBtn: UIView!
+    @IBOutlet weak var facebookBtn: FBSDKLoginButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +31,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 
         // Facebook Login
-        let loginButton = FBSDKLoginButton()
-        loginButton.delegate = self
-        facebookBtn.addSubview(loginButton)
+        facebookBtn.delegate = self
     }
 
     class func instantiate() -> MyPageUserAddViewController {
@@ -47,31 +44,6 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-
-
-
-    // Facebook Login
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-//        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-//
-//        Auth.auth().signIn(with: credential) { (user, error) in
-//            if let error = error {
-//                return
-//            }
-//            // User is signed in
-//        }
-    }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-    }
-
-
-
 
     // E-mail User Create
     @IBAction func createUserTapped(_ sender: UIButton) {
@@ -146,9 +118,39 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        print("Sign off successfully")
+        print("Sign out successfully")
     }
-    
+
+    // Facebook Login
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print("login failed! \(error)")
+                return
+            }
+
+            // すでに登録済みのユーザはどうやって判定するか。TODO
+//            if let user = user {
+//                print("user : \(user.email) has been signed in successfully.")
+//            } else {
+                print("Sign on Firebase successfully")
+
+                self.addDatabase(user: user?.email ?? "", password: "")
+//            }
+            // performSegue でログイン後のVCへ遷移させる。
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Logout Seccess")
+    }
+
     func addDatabase(user: String, password: String) {
         let urlString = "http://13.59.253.231/user/add"
         let parameters: Parameters = [
@@ -163,27 +165,4 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         }
     }
 
-//    @IBAction func googleLogin(_ sender: UIButton) {
-////        GIDSignIn.sharedInstance().signIn()
-//        let authUI = FUIAuth.defaultAuthUI()
-//        let authViewController = authUI?.authViewController()
-//        let googleProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIGoogleAuth
-//        googleProvider.signIn(withDefaultValue: "", presenting: authViewController)
-//    }
-//    func application(_ app: UIApplication, open url: URL,
-//                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-//        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
-//        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
-//            return true
-//        }
-//        // other URL handling goes here.
-//        return false
-//    }
-
-//    @IBAction func facebookLoginBtn(_ sender: UIButton) {
-//        let authUI = FUIAuth.defaultAuthUI()
-//        let authViewController = authUI?.authViewController()
-//        let facebookProvider = FUIAuth.defaultAuthUI()?.providers.last as! FUIFacebookAuth
-//        facebookProvider.signIn(withDefaultValue: "", presenting: authViewController)
-//    }
 }

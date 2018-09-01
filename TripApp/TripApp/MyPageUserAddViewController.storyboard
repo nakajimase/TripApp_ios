@@ -141,7 +141,7 @@
                                             <constraint firstAttribute="height" constant="40" id="zxZ-C7-rhJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yR7-L1-qOO">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yR7-L1-qOO" customClass="FBSDKLoginButton">
                                         <rect key="frame" x="0.0" y="81" width="200" height="41"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
