@@ -15,5 +15,8 @@ target 'TripApp' do
   pod 'GoogleMaps'
   pod 'GoogleSignIn'
   pod 'FacebookLogin'
+  pod 'FBSDKLoginKit'
+  pod 'TwitterKit'
+  pod 'LineSDK'
 
 end
