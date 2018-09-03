@@ -57,7 +57,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageUserNameCell") as! MyPageUserNameCell
             if let user = user {
-                cell.loginUserName.text = user.email! + "さん"
+                cell.loginUserName.text = user.email ?? "" + "さん"
             } else {
                 cell.loginUserName.text = "未登録"
             }

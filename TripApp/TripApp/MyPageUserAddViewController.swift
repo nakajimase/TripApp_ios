@@ -5,25 +5,20 @@ import GoogleSignIn
 import FBSDKLoginKit
 import SwiftyJSON
 import Alamofire
+import TwitterKit
+import LineSDK
 
-class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate {
+class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate, LineSDKLoginDelegate {
 
-    @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var emailLabel: UITextField!
-    @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var googleBtn: GIDSignInButton!
     @IBOutlet weak var facebookBtn: FBSDKLoginButton!
-
+    @IBOutlet weak var twitterBtn: TWTRLogInButton!
+    @IBOutlet weak var lineBtn: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
-
-        // Do any additional setup after loading the view.
-        emailLabel.text = "testtest@gmail.com"
-        passwordLabel.text = "testtest"
 
         // Google Login
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -52,18 +47,11 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
                 print("Firebase Success")
                 print(user?.user.email ?? "")
                 self.addDatabase(user: self.emailLabel.text ?? "", password: self.passwordLabel.text ?? "")
-//                let urlString = "http://13.59.253.231/user/add"
-//                let parameters: Parameters = [
-//                    "email_address": self.emailLabel.text ?? "",
-//                    "password": self.passwordLabel.text ?? ""
-//                ]
-//
-//                Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-//                    .responseJSON { response in
-//                        debugPrint(response)
-//                        print(response.result)
-//                }
+                // performSegue でログイン後のVCへ遷移させる。
+                self.delegate?.onAnswerBtnTouchUpInside(user: user?.user ?? nil)
+                self.navigationController?.popViewController(animated: true)
             } else {
+                // すでに作成済みのユーザの場合、エラーになる。
                 print("Firebase Error")
             }
         }
@@ -86,6 +74,8 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         } else {
             print("すでにログインされています")
             print(Auth.auth().currentUser?.email)
+            self.emailLabel.text = ""
+            self.passwordLabel.text = ""
         }
     }
 
@@ -128,13 +118,11 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             return
         }
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-
         Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
                 print("login failed! \(error)")
                 return
             }
-
             // すでに登録済みのユーザはどうやって判定するか。TODO
 //            if let user = user {
 //                print("user : \(user.email) has been signed in successfully.")
@@ -148,9 +136,52 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         }
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Logout Seccess")
+        print("Logout Success")
     }
+    @IBAction func twitterLogin(_ sender: TWTRLogInButton) {
+        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+            if (session != nil) {
+                print("signed in as \(session?.userName)")
 
+                let credential = TwitterAuthProvider.credential(withToken: session?.authToken ?? "",
+                                                                secret: session?.authTokenSecret ?? "")
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if let error = error {
+                        print("login failed! \(error)")
+                        return
+                    }
+                    // すでに登録済みのユーザはどうやって判定するか。TODO
+//                    if let user = user {
+//                        print("user : \(user.email) has been signed in successfully.")
+//                    } else {
+                        print("Sign on Firebase successfully")
+
+                        self.addDatabase(user: user?.email ?? "twitter", password: "")
+//                    }
+                    // メールアドレス・パスワード入力画面に遷移させる。TODO
+                    // performSegue でログイン後のVCへ遷移させる。
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                print("error: \(error?.localizedDescription)")
+            }
+        })
+    }
+    
+    // Line Login
+    func didLogin(_ login: LineSDKLogin, credential: LineSDKCredential?, profile: LineSDKProfile?, error: Error?) {
+        if let error = error {
+            print("login failed! \(error)")
+            return
+        }
+        print("Login Success")
+        // performSegue でログイン後のVCへ遷移させる。
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func lineLogIn(_ sender: UIButton) {
+        LineSDKLogin.sharedInstance().start()
+    }
+    
     func addDatabase(user: String, password: String) {
         let urlString = "http://13.59.253.231/user/add"
         let parameters: Parameters = [

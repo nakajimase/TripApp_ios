@@ -88,6 +88,7 @@
 		B490457F20FF610D00B2BF52 /* DetailMapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMapCell.xib; sourceTree = "<group>"; };
 		B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTableViewCell.xib; sourceTree = "<group>"; };
+		B4D1172A213A935F00A064E0 /* TripApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +141,7 @@
 		B410E12D20E87DA30017127B /* TripApp */ = {
 			isa = PBXGroup;
 			children = (
+				B4D1172A213A935F00A064E0 /* TripApp.entitlements */,
 				B410E12E20E87DA30017127B /* AppDelegate.swift */,
 				B490456C20FAD5B400B2BF52 /* NavigationController.swift */,
 				B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */,
@@ -216,6 +218,11 @@
 				TargetAttributes = {
 					B410E12A20E87DA30017127B = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

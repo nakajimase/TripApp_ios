@@ -3,6 +3,8 @@ import Firebase
 import FirebaseAuth
 import GoogleMaps
 import FBSDKLoginKit
+import TwitterKit
+import LineSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
+
+        // Facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        // Twitter
+        TWTRTwitter.sharedInstance().start(withConsumerKey: "", consumerSecret: "")
 
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(cGoogleMapsAPIKey)
@@ -75,9 +83,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Facebook Login
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled:Bool = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
-        return handled
-//        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[.sourceApplication] as? String, annotation: options[.annotation])
+        if let scheme = url.scheme {
+            if scheme.hasPrefix("fb") {
+                let handled:Bool = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+                return handled
+//                return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[.sourceApplication] as? String, annotation: options[.annotation])
+            }
+            if scheme.hasPrefix("twitter") {
+                return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+            }
+            if scheme.hasPrefix("line3rdp") {
+                return LineSDKLogin.sharedInstance().handleOpen(url)
+            }
+        }
+ 
+        return true
     }
 }
 
