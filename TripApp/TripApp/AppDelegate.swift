@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         // Twitter
-        TWTRTwitter.sharedInstance().start(withConsumerKey: "", consumerSecret: "")
+        TWTRTwitter.sharedInstance().start(withConsumerKey: SecureKey.twitter.consumerKey, consumerSecret: SecureKey.twitter.consumerSecret)
 
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(cGoogleMapsAPIKey)
