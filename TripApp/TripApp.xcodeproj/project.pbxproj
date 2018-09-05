@@ -8,26 +8,89 @@
 
 /* Begin PBXBuildFile section */
 		54EAFAFA44533241503007AB /* Pods_TripApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */; };
+		B40E79462115A116001535A3 /* MyPageTableTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E79442115A116001535A3 /* MyPageTableTabCell.swift */; };
+		B40E79472115A116001535A3 /* MyPageTableTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B40E79452115A116001535A3 /* MyPageTableTabCell.xib */; };
 		B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E12E20E87DA30017127B /* AppDelegate.swift */; };
-		B410E13120E87DA30017127B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E13020E87DA30017127B /* ViewController.swift */; };
-		B410E13420E87DA40017127B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410E13220E87DA40017127B /* Main.storyboard */; };
+		B410E13120E87DA30017127B /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410E13020E87DA30017127B /* TopViewController.swift */; };
+		B410E13420E87DA40017127B /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410E13220E87DA40017127B /* TopViewController.storyboard */; };
 		B410E13620E87DAB0017127B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B410E13520E87DAB0017127B /* Assets.xcassets */; };
 		B410E13920E87DAB0017127B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410E13720E87DAB0017127B /* LaunchScreen.storyboard */; };
 		B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B410E14020E8867F0017127B /* GoogleService-Info.plist */; };
+		B4333750210C06E500D642C8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433374F210C06E500D642C8 /* TabBarController.swift */; };
+		B4333752210C06FB00D642C8 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4333751210C06FB00D642C8 /* TabBarController.storyboard */; };
+		B4333754210C07E000D642C8 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4333753210C07E000D642C8 /* MypageViewController.swift */; };
+		B4333756210C07F400D642C8 /* MypageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4333755210C07F400D642C8 /* MypageViewController.storyboard */; };
+		B4333758210C08E900D642C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4333757210C08E900D642C8 /* SearchViewController.swift */; };
+		B433375A210C090000D642C8 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4333759210C090000D642C8 /* SearchViewController.storyboard */; };
+		B433375D210C122500D642C8 /* MyPageImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433375B210C122500D642C8 /* MyPageImageCell.swift */; };
+		B433375E210C122500D642C8 /* MyPageImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B433375C210C122500D642C8 /* MyPageImageCell.xib */; };
+		B4333761210C125C00D642C8 /* MyPageUserNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */; };
+		B4333762210C125C00D642C8 /* MyPageUserNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */; };
+		B4333769210C15FF00D642C8 /* MyPageUserAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4333767210C15FF00D642C8 /* MyPageUserAddCell.swift */; };
+		B433376A210C15FF00D642C8 /* MyPageUserAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */; };
+		B433376E210C23F700D642C8 /* MyPageUserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */; };
+		B4333770210C240F00D642C8 /* MyPageUserAddViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */; };
+		B44B1FDC213FFF870050A401 /* SecureFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B1FDB213FFF870050A401 /* SecureFile.swift */; };
+		B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490455E20F9FE4900B2BF52 /* DetailViewController.swift */; };
+		B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */; };
+		B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490456C20FAD5B400B2BF52 /* NavigationController.swift */; };
+		B490456F20FAD5C900B2BF52 /* NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */; };
+		B490457420FF605900B2BF52 /* DetailTopImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457220FF605900B2BF52 /* DetailTopImageCell.swift */; };
+		B490457520FF605900B2BF52 /* DetailTopImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457320FF605900B2BF52 /* DetailTopImageCell.xib */; };
+		B490457820FF608D00B2BF52 /* DetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457620FF608D00B2BF52 /* DetailTitleCell.swift */; };
+		B490457920FF608D00B2BF52 /* DetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457720FF608D00B2BF52 /* DetailTitleCell.xib */; };
+		B490457C20FF60EB00B2BF52 /* DetailContentsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457A20FF60EB00B2BF52 /* DetailContentsTextCell.swift */; };
+		B490457D20FF60EB00B2BF52 /* DetailContentsTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457B20FF60EB00B2BF52 /* DetailContentsTextCell.xib */; };
+		B490458020FF610D00B2BF52 /* DetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490457E20FF610D00B2BF52 /* DetailMapCell.swift */; };
+		B490458120FF610D00B2BF52 /* DetailMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490457F20FF610D00B2BF52 /* DetailMapCell.xib */; };
+		B4BC267620F4CF3E00E2BCBE /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */; };
+		B4BC267720F4CF3E00E2BCBE /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D77289334AF20487437B27C /* Pods-TripApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripApp/Pods-TripApp.debug.xcconfig"; sourceTree = "<group>"; };
 		73A22C9035B67B61A5473C71 /* Pods_TripApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D28D6BA3BCAAC001C10C26F /* Pods-TripApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TripApp/Pods-TripApp.release.xcconfig"; sourceTree = "<group>"; };
+		B40E79442115A116001535A3 /* MyPageTableTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableTabCell.swift; sourceTree = "<group>"; };
+		B40E79452115A116001535A3 /* MyPageTableTabCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageTableTabCell.xib; sourceTree = "<group>"; };
 		B410E12B20E87DA30017127B /* TripApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B410E12E20E87DA30017127B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B410E13020E87DA30017127B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B410E13320E87DA40017127B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B410E13020E87DA30017127B /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		B410E13320E87DA40017127B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TopViewController.storyboard; sourceTree = "<group>"; };
 		B410E13520E87DAB0017127B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B410E13820E87DAB0017127B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B410E13A20E87DAB0017127B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B410E14020E8867F0017127B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B433374F210C06E500D642C8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B4333751210C06FB00D642C8 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
+		B4333753210C07E000D642C8 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		B4333755210C07F400D642C8 /* MypageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageViewController.storyboard; sourceTree = "<group>"; };
+		B4333757210C08E900D642C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B4333759210C090000D642C8 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		B433375B210C122500D642C8 /* MyPageImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageImageCell.swift; sourceTree = "<group>"; };
+		B433375C210C122500D642C8 /* MyPageImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageImageCell.xib; sourceTree = "<group>"; };
+		B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserNameCell.swift; sourceTree = "<group>"; };
+		B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageUserNameCell.xib; sourceTree = "<group>"; };
+		B4333767210C15FF00D642C8 /* MyPageUserAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserAddCell.swift; sourceTree = "<group>"; };
+		B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageUserAddCell.xib; sourceTree = "<group>"; };
+		B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserAddViewController.swift; sourceTree = "<group>"; };
+		B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageUserAddViewController.storyboard; sourceTree = "<group>"; };
+		B44B1FDB213FFF870050A401 /* SecureFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFile.swift; sourceTree = "<group>"; };
+		B490455E20F9FE4900B2BF52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
+		B490456C20FAD5B400B2BF52 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationController.storyboard; sourceTree = "<group>"; };
+		B490457220FF605900B2BF52 /* DetailTopImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopImageCell.swift; sourceTree = "<group>"; };
+		B490457320FF605900B2BF52 /* DetailTopImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopImageCell.xib; sourceTree = "<group>"; };
+		B490457620FF608D00B2BF52 /* DetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleCell.swift; sourceTree = "<group>"; };
+		B490457720FF608D00B2BF52 /* DetailTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTitleCell.xib; sourceTree = "<group>"; };
+		B490457A20FF60EB00B2BF52 /* DetailContentsTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentsTextCell.swift; sourceTree = "<group>"; };
+		B490457B20FF60EB00B2BF52 /* DetailContentsTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailContentsTextCell.xib; sourceTree = "<group>"; };
+		B490457E20FF610D00B2BF52 /* DetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapCell.swift; sourceTree = "<group>"; };
+		B490457F20FF610D00B2BF52 /* DetailMapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMapCell.xib; sourceTree = "<group>"; };
+		B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
+		B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTableViewCell.xib; sourceTree = "<group>"; };
+		B4D1172A213A935F00A064E0 /* TripApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +143,45 @@
 		B410E12D20E87DA30017127B /* TripApp */ = {
 			isa = PBXGroup;
 			children = (
+				B4D1172A213A935F00A064E0 /* TripApp.entitlements */,
 				B410E12E20E87DA30017127B /* AppDelegate.swift */,
-				B410E13020E87DA30017127B /* ViewController.swift */,
-				B410E13220E87DA40017127B /* Main.storyboard */,
+				B490456C20FAD5B400B2BF52 /* NavigationController.swift */,
+				B490456E20FAD5C900B2BF52 /* NavigationController.storyboard */,
+				B433374F210C06E500D642C8 /* TabBarController.swift */,
+				B4333751210C06FB00D642C8 /* TabBarController.storyboard */,
+				B410E13020E87DA30017127B /* TopViewController.swift */,
+				B410E13220E87DA40017127B /* TopViewController.storyboard */,
+				B4333757210C08E900D642C8 /* SearchViewController.swift */,
+				B4333759210C090000D642C8 /* SearchViewController.storyboard */,
+				B4333753210C07E000D642C8 /* MypageViewController.swift */,
+				B4333755210C07F400D642C8 /* MypageViewController.storyboard */,
+				B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */,
+				B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */,
+				B490455E20F9FE4900B2BF52 /* DetailViewController.swift */,
+				B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */,
+				B4BC267420F4CF3E00E2BCBE /* TopTableViewCell.swift */,
+				B4BC267520F4CF3E00E2BCBE /* TopTableViewCell.xib */,
+				B4333767210C15FF00D642C8 /* MyPageUserAddCell.swift */,
+				B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */,
+				B433375B210C122500D642C8 /* MyPageImageCell.swift */,
+				B433375C210C122500D642C8 /* MyPageImageCell.xib */,
+				B433375F210C125C00D642C8 /* MyPageUserNameCell.swift */,
+				B4333760210C125C00D642C8 /* MyPageUserNameCell.xib */,
+				B40E79442115A116001535A3 /* MyPageTableTabCell.swift */,
+				B40E79452115A116001535A3 /* MyPageTableTabCell.xib */,
+				B490457220FF605900B2BF52 /* DetailTopImageCell.swift */,
+				B490457320FF605900B2BF52 /* DetailTopImageCell.xib */,
+				B490457620FF608D00B2BF52 /* DetailTitleCell.swift */,
+				B490457720FF608D00B2BF52 /* DetailTitleCell.xib */,
+				B490457A20FF60EB00B2BF52 /* DetailContentsTextCell.swift */,
+				B490457B20FF60EB00B2BF52 /* DetailContentsTextCell.xib */,
+				B490457E20FF610D00B2BF52 /* DetailMapCell.swift */,
+				B490457F20FF610D00B2BF52 /* DetailMapCell.xib */,
 				B410E13520E87DAB0017127B /* Assets.xcassets */,
 				B410E13720E87DAB0017127B /* LaunchScreen.storyboard */,
 				B410E13A20E87DAB0017127B /* Info.plist */,
 				B410E14020E8867F0017127B /* GoogleService-Info.plist */,
+				B44B1FDB213FFF870050A401 /* SecureFile.swift */,
 			);
 			path = TripApp;
 			sourceTree = "<group>";
@@ -103,6 +198,7 @@
 				B410E12820E87DA30017127B /* Frameworks */,
 				B410E12920E87DA30017127B /* Resources */,
 				2BFC441A4B1B0FA044572A10 /* [CP] Embed Pods Frameworks */,
+				DC7CA723148339C8CCD36154 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +221,11 @@
 				TargetAttributes = {
 					B410E12A20E87DA30017127B = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -151,10 +252,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B433376A210C15FF00D642C8 /* MyPageUserAddCell.xib in Resources */,
+				B490457920FF608D00B2BF52 /* DetailTitleCell.xib in Resources */,
+				B490457520FF605900B2BF52 /* DetailTopImageCell.xib in Resources */,
+				B490458120FF610D00B2BF52 /* DetailMapCell.xib in Resources */,
+				B433375A210C090000D642C8 /* SearchViewController.storyboard in Resources */,
 				B410E13920E87DAB0017127B /* LaunchScreen.storyboard in Resources */,
+				B490457D20FF60EB00B2BF52 /* DetailContentsTextCell.xib in Resources */,
+				B433375E210C122500D642C8 /* MyPageImageCell.xib in Resources */,
+				B4333756210C07F400D642C8 /* MypageViewController.storyboard in Resources */,
 				B410E14120E8867F0017127B /* GoogleService-Info.plist in Resources */,
+				B4333752210C06FB00D642C8 /* TabBarController.storyboard in Resources */,
+				B4333762210C125C00D642C8 /* MyPageUserNameCell.xib in Resources */,
+				B4BC267720F4CF3E00E2BCBE /* TopTableViewCell.xib in Resources */,
+				B40E79472115A116001535A3 /* MyPageTableTabCell.xib in Resources */,
 				B410E13620E87DAB0017127B /* Assets.xcassets in Resources */,
-				B410E13420E87DA40017127B /* Main.storyboard in Resources */,
+				B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */,
+				B410E13420E87DA40017127B /* TopViewController.storyboard in Resources */,
+				B490456F20FAD5C900B2BF52 /* NavigationController.storyboard in Resources */,
+				B4333770210C240F00D642C8 /* MyPageUserAddViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,17 +285,53 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TripApp/Pods-TripApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +357,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DC7CA723148339C8CCD36154 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TripApp/Pods-TripApp-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TripApp/Pods-TripApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,20 +398,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B410E13120E87DA30017127B /* ViewController.swift in Sources */,
+				B4333761210C125C00D642C8 /* MyPageUserNameCell.swift in Sources */,
+				B490457820FF608D00B2BF52 /* DetailTitleCell.swift in Sources */,
+				B433376E210C23F700D642C8 /* MyPageUserAddViewController.swift in Sources */,
+				B490458020FF610D00B2BF52 /* DetailMapCell.swift in Sources */,
+				B44B1FDC213FFF870050A401 /* SecureFile.swift in Sources */,
+				B410E13120E87DA30017127B /* TopViewController.swift in Sources */,
+				B4333750210C06E500D642C8 /* TabBarController.swift in Sources */,
 				B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */,
+				B490457420FF605900B2BF52 /* DetailTopImageCell.swift in Sources */,
+				B40E79462115A116001535A3 /* MyPageTableTabCell.swift in Sources */,
+				B4333758210C08E900D642C8 /* SearchViewController.swift in Sources */,
+				B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */,
+				B433375D210C122500D642C8 /* MyPageImageCell.swift in Sources */,
+				B490457C20FF60EB00B2BF52 /* DetailContentsTextCell.swift in Sources */,
+				B4333769210C15FF00D642C8 /* MyPageUserAddCell.swift in Sources */,
+				B4BC267620F4CF3E00E2BCBE /* TopTableViewCell.swift in Sources */,
+				B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */,
+				B4333754210C07E000D642C8 /* MypageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B410E13220E87DA40017127B /* Main.storyboard */ = {
+		B410E13220E87DA40017127B /* TopViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B410E13320E87DA40017127B /* Base */,
 			);
-			name = Main.storyboard;
+			name = TopViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		B410E13720E87DAB0017127B /* LaunchScreen.storyboard */ = {
