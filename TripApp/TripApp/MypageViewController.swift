@@ -101,10 +101,6 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 extension MypageViewController : LoginDelegate {
     func onLoginBtnTouchUpInside(user: User?) {
-        let cell: MyPageUserNameCell = myPageTable.dequeueReusableCell(
-            withIdentifier: "MyPageUserNameCell",
-            for: self.userNameIndex
-            ) as! MyPageUserNameCell
         self.user = user
         self.myPageTable.reloadData()
     }
