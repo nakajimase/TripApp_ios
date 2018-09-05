@@ -8,6 +8,10 @@ import Alamofire
 import TwitterKit
 import LineSDK
 
+public protocol LoginDelegate: NSObjectProtocol {
+    func onLoginBtnTouchUpInside(user: User?) -> Void
+}
+
 class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate, LineSDKLoginDelegate {
 
     @IBOutlet weak var emailLabel: UITextField!
@@ -16,6 +20,8 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
     @IBOutlet weak var facebookBtn: FBSDKLoginButton!
     @IBOutlet weak var twitterBtn: TWTRLogInButton!
     @IBOutlet weak var lineBtn: UIView!
+    
+    weak var delegate: LoginDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +54,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
                 print(user?.user.email ?? "")
                 self.addDatabase(user: self.emailLabel.text ?? "", password: self.passwordLabel.text ?? "")
                 // performSegue でログイン後のVCへ遷移させる。
-                self.delegate?.onAnswerBtnTouchUpInside(user: user?.user ?? nil)
+                self.delegate?.onLoginBtnTouchUpInside(user: user?.user ?? nil)
                 self.navigationController?.popViewController(animated: true)
             } else {
                 // すでに作成済みのユーザの場合、エラーになる。
@@ -64,6 +70,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
                 if user != nil {
                     print("Login Success")
                     print(user?.user.email)
+                    self.delegate?.onLoginBtnTouchUpInside(user: user?.user ?? nil)
                     self.navigationController?.popViewController(animated: true)
                 } else {
                     print("Login Error")

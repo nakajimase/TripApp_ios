@@ -6,6 +6,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var myPageTable: UITableView!
 
     private var user: User?
+    fileprivate var userNameIndex: IndexPath = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageUserNameCell") as! MyPageUserNameCell
+            self.userNameIndex = indexPath
             if let user = user {
                 cell.loginUserName.text = user.email ?? "" + "さん"
             } else {
@@ -75,7 +77,9 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @objc func buttonTapped(sender : AnyObject) {
-        self.show(MyPageUserAddViewController.instantiate(), sender: self)
+        let vc = MyPageUserAddViewController.instantiate()
+        vc.delegate = self
+        self.show(vc, sender: self)
     }
 
     @objc func logoutBtnTapped(sender: AnyObject) {
@@ -93,4 +97,15 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+}
+
+extension MypageViewController : LoginDelegate {
+    func onLoginBtnTouchUpInside(user: User?) {
+        let cell: MyPageUserNameCell = myPageTable.dequeueReusableCell(
+            withIdentifier: "MyPageUserNameCell",
+            for: self.userNameIndex
+            ) as! MyPageUserNameCell
+        self.user = user
+        self.myPageTable.reloadData()
+    }
 }
