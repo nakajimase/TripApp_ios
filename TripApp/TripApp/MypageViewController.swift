@@ -6,7 +6,6 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var myPageTable: UITableView!
 
     private var user: User?
-    fileprivate var userNameIndex: IndexPath = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +27,16 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         myPageTable.rowHeight = UITableViewAutomaticDimension
         myPageTable.estimatedRowHeight = 1000
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            print("User is signed in")
+            user = Auth.auth().currentUser
+        } else {
+            print("No user is signed in")
+        }
+        self.myPageTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +66,6 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageUserNameCell") as! MyPageUserNameCell
-            self.userNameIndex = indexPath
             if let user = user {
                 cell.loginUserName.text = user.email ?? "" + "さん"
             } else {
@@ -77,9 +85,7 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @objc func buttonTapped(sender : AnyObject) {
-        let vc = MyPageUserAddViewController.instantiate()
-        vc.delegate = self
-        self.show(vc, sender: self)
+        self.show(MyPageUserAddViewController.instantiate(), sender: self)
     }
 
     @objc func logoutBtnTapped(sender: AnyObject) {
@@ -97,11 +103,4 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
-}
-
-extension MypageViewController : LoginDelegate {
-    func onLoginBtnTouchUpInside(user: User?) {
-        self.user = user
-        self.myPageTable.reloadData()
-    }
 }
