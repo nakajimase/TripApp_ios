@@ -10,7 +10,7 @@ import LineSDK
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let cGoogleMapsAPIKey = "AIzaSyDKy5tH2wJaSDEAyqNj5PCtkSpGrGkkQO4"
+    let cGoogleMapsAPIKey = SecureKey.GoogleMap.APIKey
     let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         // Twitter
-        TWTRTwitter.sharedInstance().start(withConsumerKey: SecureKey.twitter.consumerKey, consumerSecret: SecureKey.twitter.consumerSecret)
+        TWTRTwitter.sharedInstance().start(withConsumerKey: SecureKey.Twitter.consumerKey, consumerSecret: SecureKey.Twitter.consumerSecret)
 
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(cGoogleMapsAPIKey)

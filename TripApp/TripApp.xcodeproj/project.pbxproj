@@ -30,6 +30,7 @@
 		B433376A210C15FF00D642C8 /* MyPageUserAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */; };
 		B433376E210C23F700D642C8 /* MyPageUserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */; };
 		B4333770210C240F00D642C8 /* MyPageUserAddViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */; };
+		B44B1FDC213FFF870050A401 /* SecureFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B1FDB213FFF870050A401 /* SecureFile.swift */; };
 		B490455F20F9FE4900B2BF52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490455E20F9FE4900B2BF52 /* DetailViewController.swift */; };
 		B490456120F9FE5C00B2BF52 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */; };
 		B490456D20FAD5B400B2BF52 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490456C20FAD5B400B2BF52 /* NavigationController.swift */; };
@@ -74,6 +75,7 @@
 		B4333768210C15FF00D642C8 /* MyPageUserAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageUserAddCell.xib; sourceTree = "<group>"; };
 		B433376D210C23F700D642C8 /* MyPageUserAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserAddViewController.swift; sourceTree = "<group>"; };
 		B433376F210C240F00D642C8 /* MyPageUserAddViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageUserAddViewController.storyboard; sourceTree = "<group>"; };
+		B44B1FDB213FFF870050A401 /* SecureFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFile.swift; sourceTree = "<group>"; };
 		B490455E20F9FE4900B2BF52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B490456020F9FE5C00B2BF52 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		B490456C20FAD5B400B2BF52 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				B410E13720E87DAB0017127B /* LaunchScreen.storyboard */,
 				B410E13A20E87DAB0017127B /* Info.plist */,
 				B410E14020E8867F0017127B /* GoogleService-Info.plist */,
+				B44B1FDB213FFF870050A401 /* SecureFile.swift */,
 			);
 			path = TripApp;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				B490457820FF608D00B2BF52 /* DetailTitleCell.swift in Sources */,
 				B433376E210C23F700D642C8 /* MyPageUserAddViewController.swift in Sources */,
 				B490458020FF610D00B2BF52 /* DetailMapCell.swift in Sources */,
+				B44B1FDC213FFF870050A401 /* SecureFile.swift in Sources */,
 				B410E13120E87DA30017127B /* TopViewController.swift in Sources */,
 				B4333750210C06E500D642C8 /* TabBarController.swift in Sources */,
 				B410E12F20E87DA30017127B /* AppDelegate.swift in Sources */,
