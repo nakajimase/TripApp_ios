@@ -70,7 +70,8 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
     // E-mail Login
     @IBAction func loginUserTapped(_ sender: UIButton) {
         if Auth.auth().currentUser == nil {
-            Auth.auth().signIn(withEmail: emailLabel.text!, password: passwordLabel.text!) {(user, error) in
+            let credential = EmailAuthProvider.credential(withEmail: emailLabel.text ?? "", password: passwordLabel.text ?? "")
+            Auth.auth().signInAndRetrieveData(with: credential) {(user, error) in
                 if user != nil {
                     print("Login Success")
                     if let user = user?.user {
@@ -101,22 +102,17 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         // Firebaseにログインする。
-        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) {(user, error) in
             if let error = error {
                 print("login failed! \(error)")
                 return
             }
-            // すでに登録済みのユーザはどうやって判定するか。TODO
-//            if let user = user {
-//                print("user : \(user.email) has been signed in successfully.")
-//            } else {
-                print("Sign on Firebase successfully")
+            print("Sign on Firebase successfully")
 
             if let user = user?.user, let email = user.email {
                 self.addDatabase(user: email, password: "", authTool: credential.provider, uid: user.uid)
-//            }
-            // performSegue でログイン後のVCへ遷移させる。
-            self.navigationController?.popViewController(animated: true)
+                // performSegue でログイン後のVCへ遷移させる。
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -131,22 +127,17 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             return
         }
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) {(user, error) in
             if let error = error {
                 print("login failed! \(error)")
                 return
             }
-            // すでに登録済みのユーザはどうやって判定するか。TODO
-//            if let user = user {
-//                print("user : \(user.email) has been signed in successfully.")
-//            } else {
-                print("Sign on Firebase successfully")
+            print("Sign on Firebase successfully")
 
             if let user = user?.user, let email = user.email {
                 self.addDatabase(user: email, password: "", authTool: credential.provider, uid: user.uid)
-//            }
-            // performSegue でログイン後のVCへ遷移させる。
-            self.navigationController?.popViewController(animated: true)
+                // performSegue でログイン後のVCへ遷移させる。
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -154,29 +145,24 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         print("Logout Success")
     }
     @IBAction func twitterLogin(_ sender: TWTRLogInButton) {
-        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+        TWTRTwitter.sharedInstance().logIn(completion: {(session, error) in
             if (session != nil) {
                 print("signed in as \(session?.userName)")
 
                 let credential = TwitterAuthProvider.credential(withToken: session?.authToken ?? "",
                                                                 secret: session?.authTokenSecret ?? "")
-                Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
+                Auth.auth().signInAndRetrieveData(with: credential) {(user, error) in
                     if let error = error {
                         print("login failed! \(error)")
                         return
                     }
-                    // すでに登録済みのユーザはどうやって判定するか。TODO
-//                    if let user = user {
-//                        print("user : \(user.email) has been signed in successfully.")
-//                    } else {
-                        print("Sign on Firebase successfully")
+                    print("Sign on Firebase successfully")
 
                     if let user = user?.user {
                         self.addDatabase(user: user.email ?? "twitter", password: "", authTool: credential.provider, uid: user.uid)
-//                    }
-                    // メールアドレス・パスワード入力画面に遷移させる。TODO
-                    // performSegue でログイン後のVCへ遷移させる。
-                    self.navigationController?.popViewController(animated: true)
+                        // メールアドレス・パスワード入力画面に遷移させる。TODO
+                        // performSegue でログイン後のVCへ遷移させる。
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
             } else {
@@ -207,7 +193,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             "auth_tool":authTool,
             "auth_key":uid
         ]
-        
+
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
                 debugPrint(response)
