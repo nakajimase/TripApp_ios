@@ -1,1 +1,5 @@
+## Other
+*.xcuserstate
+
+## SNS Key
 TripApp/TripApp/SecureFile.swift
