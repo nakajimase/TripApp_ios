@@ -54,11 +54,12 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         Auth.auth().createUser(withEmail: emailLabel.text!, password: passwordLabel.text!) { (user, error) in
             if user != nil {
                 print("Firebase Success")
-                print(user?.user.email ?? "")
-                self.addDatabase(user: self.emailLabel.text ?? "", password: self.passwordLabel.text ?? "")
-                // performSegue でログイン後のVCへ遷移させる。
-                self.delegate?.onLoginBtnTouchUpInside(user: user?.user ?? nil)
-                self.navigationController?.popViewController(animated: true)
+                if let user = user?.user, let email = user.email {
+                    self.addDatabase(user: email, password: self.passwordLabel.text ?? "", authTool: "e-mail", uid: user.uid)
+                    // performSegue でログイン後のVCへ遷移させる。
+                    self.delegate?.onLoginBtnTouchUpInside(user: user)
+                    self.navigationController?.popViewController(animated: true)
+                }
             } else {
                 // すでに作成済みのユーザの場合、エラーになる。
                 print("Firebase Error")
@@ -72,9 +73,10 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             Auth.auth().signIn(withEmail: emailLabel.text!, password: passwordLabel.text!) {(user, error) in
                 if user != nil {
                     print("Login Success")
-                    print(user?.user.email)
-                    self.delegate?.onLoginBtnTouchUpInside(user: user?.user ?? nil)
-                    self.navigationController?.popViewController(animated: true)
+                    if let user = user?.user {
+                        self.delegate?.onLoginBtnTouchUpInside(user: user)
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 } else {
                     print("Login Error")
                     self.emailLabel.text = ""
@@ -83,7 +85,6 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             }
         } else {
             print("すでにログインされています")
-            print(Auth.auth().currentUser?.email)
             self.emailLabel.text = ""
             self.passwordLabel.text = ""
         }
@@ -100,7 +101,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         // Firebaseにログインする。
-        Auth.auth().signIn(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
                 print("login failed! \(error)")
                 return
@@ -111,10 +112,12 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
 //            } else {
                 print("Sign on Firebase successfully")
 
-                self.addDatabase(user: user?.email ?? "", password: "")
+            if let user = user?.user, let email = user.email {
+                self.addDatabase(user: email, password: "", authTool: credential.provider, uid: user.uid)
 //            }
             // performSegue でログイン後のVCへ遷移させる。
             self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -128,7 +131,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
             return
         }
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        Auth.auth().signIn(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
                 print("login failed! \(error)")
                 return
@@ -139,10 +142,12 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
 //            } else {
                 print("Sign on Firebase successfully")
 
-                self.addDatabase(user: user?.email ?? "", password: "")
+            if let user = user?.user, let email = user.email {
+                self.addDatabase(user: email, password: "", authTool: credential.provider, uid: user.uid)
 //            }
             // performSegue でログイン後のVCへ遷移させる。
             self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -155,7 +160,7 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
 
                 let credential = TwitterAuthProvider.credential(withToken: session?.authToken ?? "",
                                                                 secret: session?.authTokenSecret ?? "")
-                Auth.auth().signIn(with: credential) { (user, error) in
+                Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
                     if let error = error {
                         print("login failed! \(error)")
                         return
@@ -166,11 +171,13 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
 //                    } else {
                         print("Sign on Firebase successfully")
 
-                        self.addDatabase(user: user?.email ?? "twitter", password: "")
+                    if let user = user?.user {
+                        self.addDatabase(user: user.email ?? "twitter", password: "", authTool: credential.provider, uid: user.uid)
 //                    }
                     // メールアドレス・パスワード入力画面に遷移させる。TODO
                     // performSegue でログイン後のVCへ遷移させる。
                     self.navigationController?.popViewController(animated: true)
+                    }
                 }
             } else {
                 print("error: \(error?.localizedDescription)")
@@ -192,11 +199,13 @@ class MyPageUserAddViewController: UIViewController, GIDSignInUIDelegate, GIDSig
         LineSDKLogin.sharedInstance().start()
     }
     
-    func addDatabase(user: String, password: String) {
+    func addDatabase(user: String, password: String, authTool: String, uid: String) {
         let urlString = "http://13.59.253.231/user/add"
         let parameters: Parameters = [
             "email_address": user,
-            "password": password
+            "password": password,
+            "auth_tool":authTool,
+            "auth_key":uid
         ]
         
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
